@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ClerkProvider } from '@clerk/nextjs'
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,19 +17,30 @@ export const metadata: Metadata = {
   description: "Monitore editais, gerencie oportunidades e gere propostas profissionais com IA.",
 };
 
+async function Providers({ children }: { children: React.ReactNode }) {
+  const hasClerkKey = !!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY?.startsWith('pk_')
+
+  if (hasClerkKey) {
+    const { ClerkProvider } = await import('@clerk/nextjs')
+    return <ClerkProvider>{children}</ClerkProvider>
+  }
+
+  return <>{children}</>
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html
-        lang="pt-BR"
-        className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      >
-        <body className="min-h-full flex flex-col">{children}</body>
-      </html>
-    </ClerkProvider>
+    <html
+      lang="pt-BR"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">
+        <Providers>{children}</Providers>
+      </body>
+    </html>
   );
 }
