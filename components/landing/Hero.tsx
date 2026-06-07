@@ -13,7 +13,7 @@ export function Hero() {
           </p>
           <div className="flex gap-4 flex-wrap">
             <a
-              href="/cadastro"
+              href="/sign-up"
               className="bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-8 py-3 rounded-lg transition"
             >
               Começar grátis →
