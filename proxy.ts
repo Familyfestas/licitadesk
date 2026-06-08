@@ -1,23 +1,24 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 
-const protectedPaths = ['/dashboard', '/editais', '/kanban', '/analise', '/proposta', '/onboarding']
+const isProtectedRoute = createRouteMatcher([
+  '/dashboard(.*)',
+  '/editais(.*)',
+  '/kanban(.*)',
+  '/analise(.*)',
+  '/proposta(.*)',
+  '/onboarding(.*)',
+])
 
-async function handler(req: NextRequest) {
-  const hasClerkKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY?.startsWith('pk_')
-
-  if (hasClerkKey) {
-    const { clerkMiddleware, createRouteMatcher } = await import('@clerk/nextjs/server')
-    const isProtected = createRouteMatcher(protectedPaths.map(p => `${p}(.*)`))
-    return clerkMiddleware(async (auth, request) => {
-      if (isProtected(request)) await auth.protect()
-    })(req, NextResponse.next())
+export default clerkMiddleware(async (auth, req) => {
+  if (isProtectedRoute(req)) {
+    await auth.protect()
   }
-
-  return NextResponse.next()
-}
-
-export default handler
+})
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+  matcher: [
+    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+    '/(api|trpc)(.*)',
+    '/__clerk/(.*)',
+  ],
 }
