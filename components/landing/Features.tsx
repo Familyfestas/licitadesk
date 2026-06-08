@@ -1,22 +1,69 @@
 import {
-  BarChart3, Map, TrendingUp, Kanban, MessageSquare,
-  FileText, ScanSearch, Shield, Users, Calculator,
-  Award, Lightbulb
+  Users, FileSearch, GitBranch, Scale, FileText,
+  Bell, BarChart3, Clock, Shield, BookOpen, Briefcase, Zap
 } from 'lucide-react'
 
 const features = [
-  { icon: BarChart3, title: 'Dashboard Analítico', desc: 'KPIs, funil de pipeline, volume por semana e ranking de órgãos e estados.' },
-  { icon: Map, title: 'Mapa Interativo', desc: 'Mapa do Brasil com drill-down por estado e município. Visualize onde estão as oportunidades.' },
-  { icon: TrendingUp, title: 'Tendências de Mercado', desc: 'Volume histórico em 7d, 30d, 90d ou 12 meses. Identifique sazonalidade e padrões.' },
-  { icon: Kanban, title: 'Kanban de Propostas', desc: 'Gerencie oportunidades com drag-and-drop: do radar até o contrato assinado.' },
-  { icon: MessageSquare, title: 'Chat IA com Editais', desc: 'Tire dúvidas sobre qualquer edital em linguagem natural. A IA responde com base no texto completo.' },
-  { icon: FileText, title: 'Gerador de Proposta DOCX', desc: 'Proposta técnica e comercial com 7 seções, personalizada com o perfil da sua empresa, em segundos.' },
-  { icon: ScanSearch, title: 'Análise de Documentos', desc: 'Upload PDF/DOCX dos anexos. A IA extrai requisitos, prazos e critérios de qualificação.' },
-  { icon: Shield, title: 'Score Órgão (CAPAG)', desc: 'Consulte a nota de capacidade de pagamento (A a D) de qualquer órgão público. Grátis para todos.' },
-  { icon: Users, title: 'Equipe e Colaboração', desc: 'Convide até 10 membros. Cada usuário configura alertas e preferências independentes.' },
-  { icon: Calculator, title: 'Precificador com BDI', desc: 'Monte sua planilha de custos com BDI e margens automaticamente calculadas.' },
-  { icon: Award, title: 'Gestão de Certidões', desc: 'Controle vencimentos de certidões e documentos com alertas automáticos de renovação.' },
-  { icon: Lightbulb, title: 'Insights Semanais por IA', desc: 'Receba relatórios automáticos com oportunidades relevantes e análise do seu mercado.' },
+  {
+    icon: FileSearch,
+    title: 'Matchmaking Diário',
+    desc: 'Cada edital novo é cruzado com o perfil dos seus clientes. Resultado classificado: Elegível hoje, Elegível com providências, Não elegível.',
+  },
+  {
+    icon: Scale,
+    title: 'Análise Profunda em 3 Eixos',
+    desc: 'Risco jurídico, viabilidade financeira e complexidade operacional — com citação direta da cláusula que sustenta cada ponto.',
+  },
+  {
+    icon: FileText,
+    title: 'Gerador de Peças Jurídicas',
+    desc: 'Impugnação, recurso, contrarrazões, reequilíbrio e defesa em PAS. Cobre as 4 fases do processo licitatório com jurisprudência TCU/TCEs.',
+  },
+  {
+    icon: GitBranch,
+    title: 'Plano de Ação Automático',
+    desc: 'Prazos da Lei 14.133 calculados: impugnação, esclarecimento, proposta, recurso. Integração com Google Calendar do escritório.',
+  },
+  {
+    icon: Users,
+    title: 'Multi-Cliente Nativo',
+    desc: 'Workspaces por CNPJ com billing isolado. Opere 50 clientes em uma única conta — sem planilhas paralelas ou contas duplicadas.',
+  },
+  {
+    icon: BookOpen,
+    title: 'Jurisprudência Viva TCU/TCEs',
+    desc: 'Siga temas (cláusulas restritivas, qualificação técnica, BDI excessivo) e receba alerta quando novo acórdão for publicado.',
+  },
+  {
+    icon: Bell,
+    title: 'Alertas de Certidões',
+    desc: 'Controle vencimentos de certidões do acervo de cada cliente com alertas automáticos de renovação antes do prazo.',
+  },
+  {
+    icon: Clock,
+    title: 'Timeline de Sessão Pública',
+    desc: 'Captura automática do chat de pregão com timestamps. Base auditável para fundamentar recurso depois da sessão.',
+  },
+  {
+    icon: Briefcase,
+    title: 'CRM + Timesheet Jurídico',
+    desc: 'Pipeline de oportunidades por cliente, registro de atos faturáveis. Suporte ao modelo misto: mensalidade fixa + por ato + êxito.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Parecer White-Label',
+    desc: 'Parecer técnico-jurídico exportável em PDF com a marca do escritório. Entregável de alto ticket — mercado cobra R$ 5k–30k por parecer.',
+  },
+  {
+    icon: Shield,
+    title: 'Score CAPAG de Órgãos',
+    desc: 'Consulte a nota de capacidade de pagamento (A a D) de qualquer órgão público antes de aceitar o caso. Gratuito e sem cadastro.',
+  },
+  {
+    icon: Zap,
+    title: 'Cobertura 200+ Portais',
+    desc: 'PNCP, ComprasNet, Licitações-e (BB), BEC SP, BLL e diários oficiais municipais monitorados em tempo real.',
+  },
 ]
 
 export function Features() {
@@ -25,10 +72,11 @@ export function Features() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#0F172A] mb-4">
-            Tudo que você precisa para vencer licitações
+            O sistema operacional do advogado de licitações
           </h2>
           <p className="text-[#334155] text-lg max-w-2xl mx-auto">
-            Ferramentas inteligentes para cada etapa do processo licitatório, do monitoramento ao contrato.
+            A IA extrai, organiza, compara e gera rascunhos. O especialista revisa, valida e assina.
+            A decisão final sempre é humana.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
