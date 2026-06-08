@@ -16,6 +16,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "LicitaDesk — Da licitação à proposta em 30 segundos",
   description: "Monitore editais, gerencie oportunidades e gere propostas profissionais com IA.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
