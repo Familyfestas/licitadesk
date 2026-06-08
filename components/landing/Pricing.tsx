@@ -24,7 +24,7 @@ const planos = [
     preco: '1.990',
     periodo: '/mês',
     descricao: 'Para advogados e consultores com carteira ativa de clientes licitantes.',
-    destaque: true,
+    destaque: false,
     recursos: [
       'Até 25 clientes (CNPJs)',
       '1 usuário',
@@ -89,11 +89,11 @@ export function Pricing() {
             Planos e Preços
           </div>
           <h2 className="text-4xl font-bold text-white mb-4">
-            Uma licitação ganha vale R$ 100 mil a milhões
+            Escolha o plano certo para o seu escritório
           </h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            A ferramenta precisa custar uma fração disso — e ainda ser séria o suficiente pra construir um produto real.
-            Quatro tiers calibrados pro advogado solo até a banca enterprise.
+            Do advogado solo à banca enterprise. Todos os planos incluem análise ilimitada de editais,
+            gerador de peças jurídicas e matchmaking diário.
           </p>
         </div>
 
